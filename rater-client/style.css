@@ -1,0 +1,49 @@
+body {
+    background-color: #222222;
+    font-family: Verdana;
+    overflow: hidden;
+}
+.textbutton {
+    font-size: 30px;
+    color: white;
+    font-weight: bold;
+    text-decoration: underline;
+    background: none;
+    cursor: pointer;
+    border: none;
+}
+.content {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    height: 100vh;
+}
+.button {
+    font-weight: bold;
+    background-color: #292929;
+    padding: 50px;
+    width: 400px;
+    height: 250px;
+    margin-left: 20px;
+    color: #ffffff;
+    font-size: 20px;
+    border: 7px solid #191919;
+    cursor: pointer;
+}
+.break {
+    flex-basis: 100%;
+    margin: 0;  /* Remove any margin */
+    height: 0;  /* Keep this for the effect of breaking line */
+    visibility: hidden;  /* Optional */
+}
+.idk {
+    font-weight: bold;
+    margin-left: 20px;
+    background-color: #292929;
+    padding: 10px;
+    color: #ffffff;
+    font-size: 20px;
+    border: 7px solid #191919;
+    cursor: pointer;
+}

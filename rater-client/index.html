@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+     <meta charset="UTF-8">
+    <meta name="description" content="Witaj w mojej ultra sigma stronie">
+    <title>Ankieta</title>
+    <link rel="shortcut icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NDAgNjQwIj48IS0tIUZvbnQgQXdlc29tZSBGcmVlIDcuMS4wIGJ5IEBmb250YXdlc29tZSAtIGh0dHBzOi8vZm9udGF3ZXNvbWUuY29tIExpY2Vuc2UgLSBodHRwczovL2ZvbnRhd2Vzb21lLmNvbS9saWNlbnNlL2ZyZWUgQ29weXJpZ2h0IDIwMjUgRm9udGljb25zLCBJbmMuLS0+PHBhdGggZD0iTTE2MCA5NkMxMjQuNyA5NiA5NiAxMjQuNyA5NiAxNjBMOTYgNDgwQzk2IDUxNS4zIDEyNC43IDU0NCAxNjAgNTQ0TDQ4MCA1NDRDNTE1LjMgNTQ0IDU0NCA1MTUuMyA1NDQgNDgwTDU0NCAxNjBDNTQ0IDEyNC43IDUxNS4zIDk2IDQ4MCA5NkwxNjAgOTZ6TTIxNiAyODhDMjI5LjMgMjg4IDI0MCAyOTguNyAyNDAgMzEyTDI0MCA0MjRDMjQwIDQzNy4zIDIyOS4zIDQ0OCAyMTYgNDQ4QzIwMi43IDQ0OCAxOTIgNDM3LjMgMTkyIDQyNEwxOTIgMzEyQzE5MiAyOTguNyAyMDIuNyAyODggMjE2IDI4OHpNNDAwIDM3NkM0MDAgMzYyLjcgNDEwLjcgMzUyIDQyNCAzNTJDNDM3LjMgMzUyIDQ0OCAzNjIuNyA0NDggMzc2TDQ0OCA0MjRDNDQ4IDQzNy4zIDQzNy4zIDQ0OCA0MjQgNDQ4QzQxMC43IDQ0OCA0MDAgNDM3LjMgNDAwIDQyNEw0MDAgMzc2ek0zMjAgMTkyQzMzMy4zIDE5MiAzNDQgMjAyLjcgMzQ0IDIxNkwzNDQgNDI0QzM0NCA0MzcuMyAzMzMuMyA0NDggMzIwIDQ0OEMzMDYuNyA0NDggMjk2IDQzNy4zIDI5NiA0MjRMMjk2IDIxNkMyOTYgMjAyLjcgMzA2LjcgMTkyIDMyMCAxOTJ6Ii8+PC9zdmc+" />
+    <link href="style.css" rel="stylesheet" type="text/css" media="all">
+  </head>
+<body>
+    <div class="content" id="password">
+    <div id="passwordtext" style="text-align: center; font-weight: bold; color: white;">Wpisz hasło</div>
+    <input type="search" id="input" size="6" class="idk">
+    <button onclick="passwordcheck()" class="idk" style="margin-left: 15px; text-align: center; color: white;">></button>
+    </div>
+    <div id="content" class="content">
+        <div id="counter" style="font-weight: bold; color: white;">0/78</div>
+        <div class="break"></div>
+        <button class="button" onclick="choose('one')" id="one"></button>
+        <button class="button" onclick="choose('two')" id="two"></button><br>
+        <div class="break"></div>
+        <br><button style="flex-direction: column;" class="idk" onclick="choose('x')" id="idk">Nie wiem</button>
+        </div>
+        <div style="
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 30px;
+        color: white;
+        font-weight: bold;
+        display: none;"
+        id="finish">
+            <img src="loading.png" size="200">
+        </div>
+    <script src="script.js"></script>
+</body>
