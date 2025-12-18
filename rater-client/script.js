@@ -6,7 +6,7 @@ function random(max, not) {
   return int;
 }
 function get(id) {
-  return document.getElementById(id)
+  return document.getElementById(id);
 }
 let teachers = [];
 let data = [];
@@ -17,19 +17,41 @@ let lastcombination = [0, 0];
 let api;
 let one = get("one");
 let two = get("two");
+let lengtth = 0;
+let array = [0, 0];
+function dothisagain() {
+  if (array[1] == (teachers.length - 1)) {
+    array[1] = 0
+    array[0] = parseInt(array[0]) + 1;
+  } else {
+    array[1] = parseInt(array[1]) + 1;
+  }
+  if (array[0] == array[1]) {
+    array[1] = parseInt(array[1]) + 1;
+  }
+  if (array[0] > array[1]) {
+    array[1] += 1;
+    dothisagain();
+    return;
+  }
+  if (array[0] > teachers.length - 2) {
+    return;
+  }
+  lengtth++;
+  dothisagain();
+}
 function sendtotalrequest() {
   let string = JSON.stringify(data).replaceAll(" ", "+").replaceAll('"', "");
+  let code = -1
   fetch(api + "/sendtotal?total=" + string)
-    .then((response) => response.json())
-    .then((json) => {
-      if (json.status == "success") {
-        get("finish").innerHTML = "Skończone! Nie wiesz co robić? Zagraj w coś na <button class='textbutton' onclick='mchredirect()'>maciej hub!</button>";
-      } else {
-        get("finish").innerHTML = "<button class='textbutton' onclick='newpassword()'>Coś nie poszło.. Error " + json.status + ". Kliknij aby wpisać nowe hasło</button>";
-      }
+    .then((response) => {
+      code = response.status;
     })
-    .catch((error) => {
-      get("finish").innerHTML = " <button class='textbutton' onclick='newpassword()'>Coś nie poszło.. Error" + error + ". Kliknij aby wpisać nowe hasło</button>";
+    .then(() => {
+      get("finish").innerHTML = "Skończone! Nie wiesz co robić? Zagraj w coś na <button class='textbutton' onclick='mchredirect()'>maciej hub!</button>";
+    })
+    .catch(() => {
+      get("finish").innerHTML = " <button class='textbutton' onclick='newpassword()'>Coś nie poszło.. Error " + code + ". Kliknij aby wpisać nowe hasło</button>";
     });
 }
 async function passwordcheck() {
@@ -75,13 +97,15 @@ async function passwordcheck() {
       for (i = 0; i < teachers.length; i++) {
         data.push("[0, 0, 0]");
       }
+      dothisagain();
       newteachers();
     })
-    .catch(() => {
+    .catch((error) => {
       api = undefined;
       get("content").style.display = "none";
       get("password").style.display = "flex";
       get("finish").style.display = "none";
+      console.log(error)
       get("passwordtext").innerText = "Złe hasło, wpisz nowe";
     });
   } else {
@@ -117,14 +141,14 @@ function newteachers() {
   if (lastcombination[0] == lastcombination[1]) {
     lastcombination[1] = parseInt(lastcombination[1]) + 1;
   }
-  if (lastcombination[0] > lastcombination[1] && lastcombination[0] - lastcombination[1] < 21) {
+  if (lastcombination[0] > lastcombination[1]) {
     lastcombination[1] += 1;
     newteachers();
     return;
   }
   clicks += 1;
-  get("counter").innerText = clicks.toString() + "/78";
-  if (lastcombination[0] > teachers.length - 2) {
+  get("counter").innerText = clicks.toString() + "/" + lengtth;
+  if (lastcombination[0] > teachers.length - 2) { // ???
     get("finish").style.display = "inline";
     get("content").style.display = "none";
     get("finish").innerHTML = "<img src='loading.png' size='200'>";
